@@ -32,7 +32,13 @@ public final class RandomMover implements Mover {
 	@Override
 	public Move getMove(final MoveRequest moveRequest) {
 		List<Move> possibleMoves = getPossibleMoves(moveRequest, moveRequest.getYou().getHead());
-		return getRandomMove(possibleMoves);
+		if(food.getX>(moveRequest.getYou().gethead().getX)){
+		return Move.left;
+		}
+		
+		else if(food.getX<(moveRequest.getYou().gethead().getX)){
+		return Move.right;
+		}
 	}
 
 	/**
